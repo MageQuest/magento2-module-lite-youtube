@@ -2,10 +2,12 @@
 
 YouTube videos, but performant. For Magento 2.
 
-<img src="https://img.shields.io/badge/magento-2.4-orange.svg?logo=magento&longCache=true&style=for-the-badge" alt="Magento 2.4"/>
-<img src="https://img.shields.io/badge/Hyv%C3%A4%20Themes-Supported-brightgreen?style=for-the-badge&longCache=true" alt="Hyvä Themes Supported"/>
-<img src="https://img.shields.io/packagist/v/magequest/magento2-module-lite-youtube?style=for-the-badge" alt="Packagist Version">
-<img src="https://img.shields.io/badge/License-MIT-blue.svg?longCache=true&style=for-the-badge" alt="MIT License"/>
+<div>
+    <img src="https://img.shields.io/badge/magento-2.4-orange.svg?logo=magento&longCache=true&style=for-the-badge" alt="Magento 2.4"/>
+    <img src="https://img.shields.io/badge/Hyv%C3%A4%20Themes-Supported-brightgreen?style=for-the-badge&longCache=true" alt="Hyvä Themes Supported"/>
+    <img src="https://img.shields.io/packagist/v/magequest/magento2-module-lite-youtube?style=for-the-badge" alt="Packagist Version">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg?longCache=true&style=for-the-badge" alt="MIT License"/>
+</div>
 
 ## Overview
 A Magento 2 module that adds performant YouTube embeds (with no user experience impact) based on [Paul Irish's Lite YouTube](https://github.com/paulirish/lite-youtube-embed) implementation.
