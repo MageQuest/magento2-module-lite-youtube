@@ -1,0 +1,38 @@
+<?php declare(strict_types=1);
+/**
+ * MageQuest - https://magequest.io
+ * Copyright © MageQuest. All rights reserved.
+ * See LICENSE.md file for details.
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/* @var $block Template */
+/* @var $escaper Escaper */
+
+$liteYouTubeCss = $block->getViewFileUrl('MageQuest_LiteYouTube::css/lite-yt-embed.min.css');
+$liteYouTubeJs = $block->getViewFileUrl('MageQuest_LiteYouTube::js/lite-yt-embed.min.js');
+?>
+
+<script>
+    'use strict';
+
+    (() => {
+        window.addEventListener('DOMContentLoaded', () => {
+            if (document.querySelectorAll('lite-youtube').length > 0) {
+                const link = document.createElement('link'),
+                      script = document.createElement('script');
+
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = '<?= $escaper->escapeJs($escaper->escapeUrl($liteYouTubeCss)) ?>';
+                document.head.appendChild(link);
+
+                script.type = 'text/javascript';
+                script.src = '<?= $escaper->escapeJs($escaper->escapeUrl($liteYouTubeJs)) ?>';
+                document.head.appendChild(script);
+            }
+        });
+    })();
+</script>
