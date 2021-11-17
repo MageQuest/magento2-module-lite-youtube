@@ -1,0 +1,24 @@
+{
+    "name": "magequest/magento2-module-lite-youtube",
+    "description": "A Magento 2 module that adds Paul Irish's Lite YouTube implementation support.",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": ">=103.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MageQuest",
+            "email": "hello@magequest.io",
+            "homepage": "https://www.magequest.io"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MageQuest\\LiteYouTube\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
