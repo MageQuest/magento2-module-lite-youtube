@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageQuest - https://magequest.io
+ * Copyright © MageQuest. All rights reserved.
+ * See LICENSE.md file for details.
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="lite-youtube"
+          label="Lite YouTube"
+          component="Magento_PageBuilder/js/content-type-collection"
+          form="pagebuilder_lite_youtube_form"
+          menu_section="media"
+          icon="icon-pagebuilder-video"
+          sortOrder="21"
+          translate="label">
+        <children default_policy="deny"/>
+        <appearances>
+            <appearance name="default"
+                        default="true"
+                        preview_template="MageQuest_LiteYouTube/content-type/lite-youtube/default/preview"
+                        master_template="MageQuest_LiteYouTube/content-type/lite-youtube/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <style name="text_align" source="text_align"/>
+                        <style name="display"
+                               source="display"
+                               converter="Magento_PageBuilder/js/converter/style/display"
+                               preview_converter="Magento_PageBuilder/js/converter/style/preview/display"/>
+                        <style name="margins"
+                               storage_key="margins_and_padding"
+                               reader="Magento_PageBuilder/js/property/margins"
+                               converter="Magento_PageBuilder/js/converter/style/margins"/>
+                        <attribute name="name" source="data-content-type"/>
+                        <attribute name="appearance" source="data-appearance"/>
+                        <css name="css_classes"/>
+                    </element>
+                    <element name="inner">
+                        <style name="max_width"
+                               source="max_width"
+                               converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <static_style source="display" value="inline-block"/>
+                        <static_style source="width" value="100%"/>
+                        <static_style source="box-sizing" value="border-box"/>
+                    </element>
+                    <element name="wrapper">
+                        <style name="border"
+                               source="border_style"
+                               converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width"
+                               source="border_width"
+                               converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <style name="border_radius"
+                               source="border_radius"
+                               converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <style name="padding"
+                               storage_key="margins_and_padding"
+                               reader="Magento_PageBuilder/js/property/paddings"
+                               converter="Magento_PageBuilder/js/converter/style/paddings"/>
+                        <static_style source="overflow" value="hidden"/>
+                    </element>
+                    <element name="embed">
+                        <attribute name="video_id" source="videoid"/>
+                        <attribute name="play_label" source="playlabel"/>
+                        <attribute name="params" source="params"/>
+                        <attribute name="quality" source="quality"/>
+                        <attribute name="lazy" source="lazy"/>
+                        <attribute name="image"
+                                   source="image"
+                                   converter="Magento_PageBuilder/js/converter/attribute/src"
+                                   preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+    </type>
+</config>

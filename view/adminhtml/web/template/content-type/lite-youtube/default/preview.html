@@ -1,0 +1,36 @@
+<!--
+/**
+ * MageQuest - https://magequest.io
+ * Copyright © MageQuest. All rights reserved.
+ * See LICENSE.md file for details.
+ */
+ -->
+<div class="pagebuilder-content-type pagebuilder-lite-youtube"
+     attr="data.main.attributes"
+     ko-style="data.main.style"
+     css="data.main.css"
+     event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <!-- ko if: data.embed.attributes().videoid -->
+    <div class="pagebuilder-lite-youtube-inner"
+         attr="data.inner.attributes"
+         ko-style="data.inner.style"
+         css="data.inner.css">
+        <div class="pagebuilder-lite-youtube-wrapper"
+             attr="data.wrapper.attributes"
+             ko-style="data.wrapper.style"
+             css="data.wrapper.css">
+            <!-- Output has to be bound as HTML, otherwise lite-youtube will try to render element before 'videoid' is bound -->
+            <div if="data.embed.attributes().image"
+                 data-bind="html: '<lite-youtube videoid=\'' + data.embed.attributes().videoid + '\' playlabel=\'' + data.embed.attributes().playlabel + '\' params=\'' + data.embed.attributes().params + '\' image=\'' + data.embed.attributes().image + '\'></lite-youtube>'">
+            </div>
+            <div ifnot="data.embed.attributes().image"
+                 data-bind="html: '<lite-youtube videoid=\'' + data.embed.attributes().videoid + '\' playlabel=\'' + data.embed.attributes().playlabel + '\' params=\'' + data.embed.attributes().params + '\' quality=\'' + data.embed.attributes().quality + '\'></lite-youtube>'">
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: data.embed.attributes().videoid -->
+    <i class="icon-pagebuilder-video pagebuilder-video-placeholder"/>
+    <!-- /ko -->
+    <render args="getOptions().template" />
+</div>
