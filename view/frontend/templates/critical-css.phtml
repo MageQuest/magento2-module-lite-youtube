@@ -1,0 +1,16 @@
+<?php declare(strict_types=1);
+/**
+ * MageQuest - https://magequest.io
+ * Copyright © MageQuest. All rights reserved.
+ * See LICENSE.md file for details.
+ */
+
+use Magento\Framework\View\Element\Template;
+
+/* @var $block Template */
+?>
+
+<!-- Critical CSS for <lite-youtube> element to avoid CLS: https://web.dev/cls/ -->
+<style>
+    lite-youtube{background-color:#000;position:relative;display:block;contain:content;background-position:center center;background-size:cover;cursor:pointer}lite-youtube::after{content:"";display:block;padding-bottom:calc(100% / (16 / 9))}<?php // phpcs:ignore ?>
+</style>
