@@ -7,15 +7,16 @@
 
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
 
-/* @var $block Template */
-/* @var $escaper Escaper */
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var SecureHtmlRenderer $secureRenderer */
 
 $liteYouTubeCss = $block->getViewFileUrl('MageQuest_LiteYouTube::css/lite-yt-embed.min.css');
 $liteYouTubeJs = $block->getViewFileUrl('MageQuest_LiteYouTube::js/lite-yt-embed.min.js');
-?>
 
-<script>
+$scriptString = <<<scriptStr
     require(['domReady!'], function() {
         'use strict';
 
@@ -25,12 +26,14 @@ $liteYouTubeJs = $block->getViewFileUrl('MageQuest_LiteYouTube::js/lite-yt-embed
 
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = '<?= $escaper->escapeJs($escaper->escapeUrl($liteYouTubeCss)) ?>';
+            link.href = '{$escaper->escapeJs($escaper->escapeUrl($liteYouTubeCss))}';
             document.head.appendChild(link);
 
             script.type = 'text/javascript';
-            script.src = '<?= $escaper->escapeJs($escaper->escapeUrl($liteYouTubeJs)) ?>';
+            script.src = '{$escaper->escapeJs($escaper->escapeUrl($liteYouTubeJs))}';
             document.head.appendChild(script);
         }
     });
-</script>
+scriptStr;
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
