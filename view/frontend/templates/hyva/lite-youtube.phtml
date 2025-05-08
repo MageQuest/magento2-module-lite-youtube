@@ -5,11 +5,13 @@
  * See LICENSE.md file for details.
  */
 
+use Hyva\Theme\ViewModel\HyvaCsp;
 use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\Template;
 
-/* @var $block Template */
-/* @var $escaper Escaper */
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var HyvaCsp $hyvaCsp */
 
 $liteYouTubeCss = $block->getViewFileUrl('MageQuest_LiteYouTube::css/lite-yt-embed.min.css');
 $liteYouTubeJs = $block->getViewFileUrl('MageQuest_LiteYouTube::js/lite-yt-embed.min.js');
@@ -36,3 +38,4 @@ $liteYouTubeJs = $block->getViewFileUrl('MageQuest_LiteYouTube::js/lite-yt-embed
         });
     })();
 </script>
+<?php isset($hyvaCsp) && $hyvaCsp->registerInlineScript() ?>
